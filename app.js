@@ -35,7 +35,7 @@ app.get('/', (req, res) => {  res.send('Hello World!')});
 app.post('/api/expense',async (req,res)=>{
 
     try{
-        const expense = await Expense.create(req.body);
+        const expense = await Expense.create(JSON.parse(req.body));
         res.status(200).json(expense);
     }
     catch(e){
